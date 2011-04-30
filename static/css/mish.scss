@@ -1,0 +1,88 @@
+@import "vars";
+
+
+/*Font faces*/
+@font-face {
+    src: url("/static/fonts/Comfortaa_Regular.ttf");
+    font-family: Comfortaa;
+}
+@font-face {
+    src: url("/static/fonts/Comfortaa_Bold.ttf");
+    font-family: Comfortaa_Bold;
+}
+
+/*Base classes*/
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+.hidden {
+    display: none;
+}
+.highlight.green{
+    color: $green;
+}
+.highlight.orange{
+    color: $orange;
+}
+.highlight.blue{
+    color: $blue;
+}
+
+
+/*Main style*/
+body {
+    /*background: $bg_color;*/
+    /*color: $fg_color;*/
+    text-shadow: 0 1px 1px #888;
+    font-family: Comfortaa;
+    padding-bottom: 100px;
+}
+
+body #content {
+    padding: 4px;
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+.links{
+    margin-top: 6px;
+}
+.favic{
+		margin-bottom: -4px;
+		margin-right: 6px;
+		height: 16px;
+	}
+li{
+	padding-left: 8px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+    list-style: none;
+    margin-left: -24px;
+    width: 500px;
+}
+.loginerror{
+    background: #aa0000;
+    font-weight: bold;
+    text-align: center;
+    height: 20px;
+    margin-bottom: 8px;
+    padding: 4px;
+    color: #000 !important;
+}
+.del{
+    padding: 4px 5px !important;
+    margin-top: -3px;
+    margin-right: -1px;
+}
+.form{
+    padding: 4px;
+    width: 500px;
+}
+.send{
+    margin-right: -3px;
+    margin-top: -2px;
+}

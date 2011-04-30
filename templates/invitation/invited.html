@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div id="form">
+    <span class="formtitle">
+        You are invited!</span>
+        <p>
+            U r lucky bastard!
+        </p>
+
+        <a class='button awesome right regbutton' href="{% url my_invitation.views.register %}?invitation_key={{ invitation_key }}">Continue</a>
+    </div>
+{% endblock %}
+

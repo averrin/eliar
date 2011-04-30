@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/16/trunk/stealth/messages/templates/messages
+END
+nohup.out
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/17/trunk/stealth/messages/templates/messages/nohup.out
+END
+new_message.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/16/trunk/stealth/messages/templates/messages/new_message.html
+END
+inbox.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/16/trunk/stealth/messages/templates/messages/inbox.html
+END
+outbox.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/16/trunk/stealth/messages/templates/messages/outbox.html
+END
+trash.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/16/trunk/stealth/messages/templates/messages/trash.html
+END
+compose.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/20/trunk/stealth/messages/templates/messages/compose.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/18/trunk/stealth/messages/templates/messages/base.html
+END
+view.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/16/trunk/stealth/messages/templates/messages/view.html
+END

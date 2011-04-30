@@ -1,0 +1,26 @@
+    <h1>ToDo</h1>
+    <p>
+        <ul style="width: 400px">
+            <li><s>Submit forms by press return</s></li>
+        <li class="highlight blue"><s>Highlight theme</s></li>
+        <li class="highlight orange"><s>Favicon</s></li>
+        <li class="highlight green"><s>Notifications</s></li>
+        </ul>
+    <ul>
+    {% autoescape off %}
+    {% for line in todo %}
+    
+        <li class="{% if line.done %}done{% endif %} todoline"><span class="todotext">{{ line.text }}</span> <span class="todocontrols right">[ :<a class="highlight green" href="{% url dev_tools.views.todo_done line.id %}">{% if line.done %}un{% endif %}done</a> ][ :<a class="highlight orange" href="{% url dev_tools.views.todo_del line.id %}">del</a> ]</span></li>
+    {% endfor %}
+    {% endautoescape %}
+    </ul>
+    </p><p>
+<form method="post" action="{% url dev_tools.views.todo_add %}">
+    {% csrf_token %}
+{#    <input type="text" class="awesome" id="todoline">#}
+        {{ form.text }}
+        <a class=' button awesome todobutton sendform'>Add</a>
+             <input type="submit" style="position: absolute; left: -9999px"/>
+</form>
+    </p>
+    <hr>

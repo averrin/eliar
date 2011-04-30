@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1368/trunk/grappelli/dashboard/management/commands
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/management/commands/__init__.py
+END
+customdashboard.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1368/trunk/grappelli/dashboard/management/commands/customdashboard.py
+END

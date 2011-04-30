@@ -1,0 +1,61 @@
+@import "vars";
+.badge {
+ /* basic */
+ background: #333 url("http://averr.in/static/images/overlay-button.png") repeat-x;color: #eee;
+ margin: 6px auto;
+ width: 200px;
+height: 40px;
+ //padding: 100px;
+ text-align: center;
+ /* border-radius */
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+ /* box-shadow */
+ -webkit-box-shadow: rgba(0,0,0,0.5) 0px 1px 3px;
+ -moz-box-shadow: rgba(0,0,0,0.5) 0px 1px 3px;
+ box-shadow: rgba(0,0,0,0.5) 0px 1px 3px;
+}
+
+.badge_text {
+float: right;
+/*padding-right: 12px;*/
+padding-top: 12px;
+width: 157px;;
+text-align: center;
+
+
+}
+.badge_icon{
+float: left;
+display: inline-block;
+height: 100%;
+width: 40px;
+//background: orange;
+border-radius: 5px 0px 0px 5px;
+border-right: 1px solid #555;
+//background-color: #444;
+}
+.badge_icon img{
+height: 32px;
+padding: 4px;
+}
+
+.avatar{
+float:right;
+}
+.avatar img{
+height: 200px;
+border-radius: 5px;
+ box-shadow: rgba(0,0,0,0.5) 0px 1px 3px;
+}
+.one_col {
+width: 33%;
+height: 532px;
+}
+.two_col {
+width: 66%;
+}
+.personal_links{
+list-style: none;
+}

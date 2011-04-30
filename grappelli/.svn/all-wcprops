@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/1413/trunk/grappelli
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1412/trunk/grappelli/__init__.py
+END
+settings.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1349/trunk/grappelli/settings.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/1396/trunk/grappelli/models.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/1325/trunk/grappelli/urls.py
+END

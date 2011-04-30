@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load inplace_edit %}
+{% load i18n %}
+
+{% block title %}Averr.in{% endblock %}
+
+
+{% block content %}
+    <div id='greeting'>
+    <h1>
+        {% trans "Welcome, <span class='highlight green'>{{</span>user.<span class='highlight orange'>name</span><span class='highlight green'>}}</span>" %}
+        </h1>
+    <div id="text">
+
+
+                {% blocktrans %}
+                    <p>I think you dont accidentally visited this page.</p>
+                    <p>Its author and rightful owner is Alex "<span class="highlight green">Averrin</span>" Nabrodov.</p>
+                    And if you want:
+                            <ul>
+        <li>discover something about me: you should go to <a href="http://me.averr.in">me.averr.in</a></li>
+        <li>read some my thoughts and articles: <a href="http://t.averr.in">t.averr.in</a></li>
+        <li>or see my portfolio: <a href="http://me.averr.in/portfolio">me.averr.in/portfolio</a></li>
+        </ul>
+        <p>
+            Developing of this page is in pre-alpha stage and so most functions are not yet available, and some text goes without saying no relation to context. Some information: <a href="/about">:about page</a>
+        </p>
+        {% endblocktrans %}
+    </div>
+<div class='mid wall'>
+    <p>
+        <hr>
+
+<br>
+    {% blocktrans %}
+        This is my "wall". You can write me some message. Double click area below this for start editing. Dont forget save your message.
+    {% endblocktrans %}
+    
+{#        {% trans "" %}#}
+    </p>
+    <br>
+        {% inplace_edit "profile.wall_text|linebreaks|safe"  auto_height=1, auto_width=1, class_inplace="wallta" %}
+</div>
+    </div>
+
+{% endblock %}
+{% block scripts %}  {% inplace_media %} {% endblock %}
+

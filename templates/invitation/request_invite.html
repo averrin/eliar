@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load i18n %}
+
+
+{% block content %}
+    <form method="post" action="{% url main.views.request_invite %}">
+        {% csrf_token %}
+    <div id="form">
+    <span class="formtitle">{%  trans "Get invite" %}</span>
+        <p>
+            {{ form.email }}
+            <span class='label'>:{%  trans "Email" %}</span>
+        </p>
+
+        <p>
+            {% blocktrans %}
+            :Plz, write something about You. Reasons why i must send invite to You. Min 200 chars. I think you dont know why you want it.
+            {% endblocktrans %}
+            <br>
+            {{ form.about }}
+            <span class='label'>:{%  trans "About" %}</span>
+        </p>
+        <a class=' button awesome right sendform'>{%  trans "Send" %}</a>
+    </div>
+</form>
+{% endblock %}

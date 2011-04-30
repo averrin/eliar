@@ -1,0 +1,4 @@
+*.pyc
+reports/
+local_settings*
+*~

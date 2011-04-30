@@ -1,0 +1,1 @@
+sudo pip install coverage cssmin django-any django-assets django-debug-toolbar django-jenkins logilab-astng logilab-common pylint unittest2 werkzeug django-rosetta

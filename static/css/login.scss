@@ -1,0 +1,77 @@
+@import "vars";
+
+#loginform{
+    margin: 0 auto;
+    width: $form_width;
+}
+
+
+#form{
+    margin: 0 auto;
+    width: $form_width;
+}
+#midform{
+    margin: 0 auto;
+    width: 400px;
+}
+#composeform input, #composeform textarea {
+    width: 270px;
+}
+#composeform .btwrap {
+    width: 365px;
+}
+.label{
+    padding-left: 4px;
+    vertical-align: middle;
+}
+textarea{
+    vertical-align: middle;
+    height: 150px;
+}
+.loginbutton{
+    width: 50px;
+    text-align: center;
+}
+
+.loginerror{
+    background: #aa0000;
+    font-weight: bold;
+    text-align: center;
+    height: 20px;
+    margin-bottom: 8px;
+    padding: 4px;
+}
+#greeting{
+    margin: 0 auto;
+    text-align: center;
+}
+#greeting #text {
+    text-align: left;
+    margin: 0 auto;
+    width: $mid_width;
+}
+
+#inviteform{
+    margin: 0 auto;
+    width: $form_width;
+    display: none;
+}
+
+.hide{
+    float: right;
+    font-weight: bold;
+}
+.hide a{
+    color: #eee !important;
+}
+.formtitle{
+    /*margin: 0 auto;*/
+    font-size: 18pt;
+    margin-bottom: 10px;
+    /*text-align: center;*/
+}
+.mail_body{
+    height: $form_width;
+    width: 460px;
+    margin-top: 6px;
+}

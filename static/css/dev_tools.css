@@ -1,0 +1,15 @@
+.done span.todotext{
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.todoline{
+    width: 60%;
+}
+.todocontrols{
+    text-decoration: none !important;
+}
+#id_text {
+    width: 40%;
+    margin-left: 2em;
+}

@@ -1,0 +1,30 @@
+@import "vars";
+
+::selection {
+    background-color: $green;
+    color: #222;
+}
+
+a {
+    color: $blue
+}
+
+a:hover{
+    color: $green;
+}
+.mid{
+    width: $mid_width;
+    margin: 0 auto;
+}
+
+.wide{
+    width: $wide_width;
+    margin: 0 auto;
+}body p {
+    margin: 2px;
+}
+h1{
+    font-size: 24pt;
+}
+
+

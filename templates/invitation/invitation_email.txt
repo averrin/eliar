@@ -1,0 +1,1 @@
+<a href="{{site}}{% url my_invitation.views.invited invitation_key %}">Go to registration</a>

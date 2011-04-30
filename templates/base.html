@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="Averrin's personal site">
+	<meta name="author" content="Averrin">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {% load assets %}
+
+  <link rel="shortcut icon" href="{{ STATIC }}favicon.ico">
+  <link rel="apple-touch-icon" href="{{ STATIC }}apple-touch-icon.png">
+
+{% assets "css_bp" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
+
+{% block css %}
+{% assets "css_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
+{% endblock %}
+
+	<script src="{{ STATIC }}js/libs/modernizr-1.7.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<header>
+
+            {% block header %}{% endblock %}
+		</header>
+
+		<div id="main" role="main">
+
+            {% block body %}{% endblock %}
+		</div>
+
+		<footer>
+
+            {% block footer %}{% endblock %}
+		</footer>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC }}js/libs/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
+{% assets "js_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+<script>
+//  newjQuery = jQuery.noConflict(true);
+</script>
+          <script>
+    $(function(){
+    $('#menu').ptMenu()
+})
+    </script>
+      {% block scripts %}
+  {% endblock %}
+</body>
+</html>

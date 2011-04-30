@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules
+END
+group.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules/group.html
+END
+recent_actions.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules/recent_actions.html
+END
+feed.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules/feed.html
+END
+link_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules/link_list.html
+END
+model_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules/model_list.html
+END
+app_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1366/trunk/grappelli/dashboard/templates/grappelli/dashboard/modules/app_list.html
+END

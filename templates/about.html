@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div class="mid">
+        <h1>:About</h1>
+    <p>
+    Copyright by :<a class="highlight blue" href="http://me.averr.in">Averrin</a>, 2011<br>
+            Powered by <a class="highlight green" href="http://djangoproject.com">Django</a>, <a class="highlight orange" href="http://html5boilerplate.com">HTML5Boilerplate</a>, <a class="highlight blue" href="http://jquery.com">jQuery</a> and etc.<br>
+        Optimised for Webkit browsers. Version: {{ VERSION }}
+    </p>
+    <h1>:Special thanks</h1>
+    <p>
+
+        <p>I use following django apps:</p>
+
+        <code>INSTALLED_APPS = (</code>
+    <ul>
+<li>'<a class="highlight green" href="http://code.google.com/p/django-grappelli/">grappelli</a>',</li>
+<li>'<a class="highlight green" href="http://code.google.com/p/django-registration/">registration</a>',</li>
+<li>'<a class="highlight green" href="https://bitbucket.org/david/django-invitation/wiki/Home">invitation</a>',</li>
+<li>'<a class="highlight green" href="http://elsdoerfer.name/docs/webassets/">django_assets</a>',</li>
+<li>'<a class="highlight green" href="http://code.google.com/p/django-messages/">messages</a>',</li>
+<li>'<a class="highlight green" href="http://code.google.com/p/django-rosetta/">rosetta</a>',</li>
+<li>'<a class="highlight green" href="https://tracpub.yaco.es/djangoapps/wiki/InplaceEditForm">inplaceeditform</a>',</li>
+<li>'<a class="highlight green" href="http://code.google.com/p/django-command-extensions/">django_extensions</a>',</li>
+<li>'<a class="highlight green" href="https://github.com/kmmbvnr/django-jenkins">django_jenkins</a>',</li>
+<li>'<a class="highlight green" href="https://github.com/robhudson/django-debug-toolbar">debug_toolbar</a>',     </li>
+    </ul>
+    <code>)</code>
+
+        <p>Other developers software:</p>
+    <ul>
+        <li><a class="highlight green" href="http://git-scm.com/">Git</a></li>
+        <li><a class="highlight green" href="http://www.jetbrains.com/pycharm/">PyCharm</a></li>
+        <li><a class="highlight green" href="http://jenkins-ci.org/">Jenkins</a></li>
+    </ul>
+    </p></div>
+{% endblock %}
+

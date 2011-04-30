@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load extra %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% load inplace_edit %}
+
+{% block title %}
+    Averr.in
+{% endblock %}
+
+{% block scripts %}
+{#    <script type="text/javascript" src="{{ STATIC }}js/mylibs/jquery.ui.potato.menu.js"></script>#}
+{#    <script type="text/javascript" src="{{ STATIC }}js/mylibs/tooltips.js"></script>#}
+
+{% endblock %}
+{% block header %}
+
+    <div class="notification"><span class="msg"></span><span class="hide">[ <a href="javascript://">:{%  trans "hide" %}</a> ]</span></div>
+            {% if form.errors %}
+        <div class='loginerror'>
+            {% for field,err in form.errors.items %}
+                {% if not forloop.counter0 %}
+                        {{ err|striptags }}
+                {% endif %}
+            {% endfor %}
+        <span class="hide">[ <a href="javascript://">:{%  trans "hide" %}</a> ]</span>
+        </div>
+    {% endif %}
+    <div id="topbar">
+       <a href="{{ HOME }}"><div id="tomain" class="left"></div></a>
+        {% if user.is_authenticated %}
+       <span id="username" class="left">[ :<a href="{% url profile user.id %}">{{ user }}</a> ]</span>
+    <div class="right">
+{#        <div id="activeTab" class="">Menu</div>#}
+        <ul id="menu">
+        <li class='button awesome menubutton fl' >{%  trans "Menu" %}<span class="sb"><span></span></span></li>
+            <ul class="menuitems">
+                <li><a href="{% url profile user.id %}"><span>{%  trans "Profile" %}</span></a></li>
+
+            <li><a href="{% url messages.views.inbox %}"><span>{% trans "Inbox" %} {{ mail_count }}</span></a> {% if inbox_count %}<span class="rcounter">{{ inbox_count }}</span>{% endif %}</li>
+
+                {% if user.is_superuser %}
+                <li><a href="{% url my_invitation.views.invite %}"><span>{% trans "Invite" %}</span></a> {% if requests_count %}<span class="rcounter">{{ requests_count }}</span>{% endif %}</li>
+                <li><a href="{% url index %}admin"><span>{% trans "Admin" %}</span></a></li>
+                {% endif %}
+                <li><a href="{% url logout %}"><span>{% trans "Log out" %}</span></a></li>
+            </ul>
+        </ul>
+    </div>
+        {% else %}
+                <div id="buttons" class="right">
+            <a class='button awesome showlogin'>{% trans "Sign in" %}</a>
+            <a class='button awesome showinvite pulsed'>{% trans "Get invite" %}</a>
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}
+
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <ul id="navigationMenu">
+    <li>
+	    <a class="home" href="{{ HOME }}">
+            <span>{% trans "Home" %}</span>
+        </a>
+    </li>
+
+    <li>
+    	<a class="about" href="{% url about %}">           <span>{% trans "About" %}</span>
+        </a>
+    </li>
+            <li>
+    	<a class="services" href="{% url index %}">           <span>{% trans "Main" %}</span>
+        </a>
+    </li>
+
+        {% comment %}
+    <li>
+	     <a class="services" href="#">
+            <span>Services</span>
+         </a>
+    </li>
+
+    <li>
+    	<a class="portfolio" href="#">
+            <span>Portfolio</span>
+        </a>
+    </li>
+
+    <li>
+    	<a class="contact" href="#">
+            <span>Contact us</span>
+        </a>
+    </li>
+        {% endcomment %}
+</ul>
+    {% endif %}
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+{#    <div id='footer'>#}
+<div id="stickey_footer">
+
+        <ul id="footer_menu">
+            <li class="imgmenu"></li>
+        </ul>
+        <div class="rights">Copyright by :<a class="highlight blue" href="http://me.averr.in">Averrin</a>, 2011<br>
+            Powered by <a class="highlight green" href="http://djangoproject.com">Django</a>, <a class="highlight orange" href="http://html5boilerplate.com">HTML5Boilerplate</a>, <a class="highlight blue" href="http://jquery.com">jQuery</a> and <a href="/about">etc</a>. Optimised for Webkit browsers. Version: {{ VERSION }}
+            <div class="right"><a href="/?language=ru"><img src="{{ STATIC }}images/russia.png" class="flag"></a> <a href="/?language=en"><img src="{{ STATIC }}images/great_britain.png" class="flag"></a></div>
+        </div>
+    {% if user.is_authenticated %}
+    {% else %}
+        {% comment %}
+  <ul id="footer_menu">
+    <!-- Begin Footer Menu -->
+    <li class="imgmenu"><a href="#"><span>Home</span></a></li>
+    <!-- This Item is an Image, the "span" is hidden via CSS -->
+    <li><a href="#">Services</a>
+    <li><a href="#">Portfolio</a>
+    <li><a href="#">Friends</a>
+    <li><a href="#">Blog</a>
+    <li><a href="#">Testimonials</a>
+    <li><a href="#">Contact</a>
+  </ul>
+  <!-- End Social Icons -->
+  <ul id="social_icons">
+    <!-- Social Icons -->
+    <!-- The span is the text appearing on hover, use the tooltip class in the link -->
+    <li><a href="#" ><img src='{{ STATIC }}images/twitter.png' alt="" /><span>Twitter</span></a></li>
+    <li><a href="#" ><img src='{{ STATIC }}images/digg.png' alt="" /><span>Digg</span></a></li>
+    <li><a href="#" ><img src='{{ STATIC }}images/flickr.png' alt="" /><span>Flickr</span></a></li>
+    <li><a href="#" ><img src='{{ STATIC }}images/facebook.png' alt="" /><span>Facebook</span></a></li>
+  </ul>
+        {% endcomment %}
+{% endif %}
+</div>
+{#    </div>#}
+{% endblock %}

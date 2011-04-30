@@ -1,0 +1,35 @@
+{% extends "messages/base.html" %} 
+{% load i18n %} 
+{%block title%}
+View Message
+{%endblock%}
+{%block crumb%}
+&raquo;&nbsp; <a href="{% url messages_inbox %} ">{% trans "Inbox" %}</a> &raquo;&nbsp; Message
+{%endblock%}
+{% block mail_content %}
+<table class="messages span-18">
+    <thead>
+        <tr><th>{% trans "Field" %}</th><th>{% trans "Value" %}</th></tr>
+    </thead>
+    <tbody>
+		<tr><td>Subject</td><td><strong>{{ message.subject }}</strong></td></tr>
+	<tr><td>Sender</td><td><strong>{{ message.sender }}</strong></td></tr>
+	<tr><td>Send at</td><td><strong>{{ message.sent_at|date:_("DATETIME_FORMAT")}}</strong></td></tr>
+	<tr><td>Recipient</td><td><strong>{{ message.recipient }}</strong></td></tr>
+    </tbody>
+</table>
+<h2>Message body</h2>
+<textarea style='margin: 6px 10px; height: 300px;'>
+{{ message.body|linebreaksbr }}
+</textarea>
+{% ifequal message.recipient.pk user.pk %}
+<div class="module submit-row">
+                <ul class="submit-row">
+                    <li class="submit-button-container"><a href="{% url messages_reply message.id %}"><input type="submit" value="{% trans "Reply" %}" class="default" id='reply'></a></li>
+                    <li class="submit-button-container"><a href="{% url messages_delete message.id %}"><input type="submit" value="{% trans "Delete" %}" class="default" id='delete'></a></li>
+                </ul>
+            </div>
+
+{% endifequal %}
+
+{% endblock %}

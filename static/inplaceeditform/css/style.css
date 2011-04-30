@@ -1,0 +1,71 @@
+/*button.cancel span,*/
+/*button.apply span {*/
+  /*visibility: hidden;*/
+/*}*/
+
+.apply, .cancel{
+    margin: 3px;
+}
+
+.errors  {
+    list-style: none;
+    list-style-image: none !important;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.errors li {
+    border: 1px solid #f57901;
+    margin: 0;
+    padding: 5px 5px 5px 5px;
+    background-color: #fbe8d5;
+    vertical-align: middle;
+}
+
+.errors img {
+    text-decoration: none;
+    border: none;
+    vertical-align: bottom;
+}
+
+.success  {
+    list-style: none;
+    list-style-image: none !important;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.success li {
+    border: 1px solid #118811;
+    margin: 0;
+    padding: 5px 5px 5px 5px;
+    background-color: #BAFFB2;
+    color: #118811;
+    vertical-align: middle;
+}
+
+.success img {
+    text-decoration: none;
+    border: none;
+    vertical-align: bottom;
+}
+
+.missing-translation {
+    display: block;
+    color: red;
+    text-align: center;
+}
+
+span.textareainplaceedit {
+    display: block;
+}
+
+.inplaceHide {
+    display: none;
+}
+
+form.inplaceeditform {
+    display: inline;
+}

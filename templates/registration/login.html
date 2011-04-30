@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% load i18n %}
+
+{% block title %}Averr.in Login{% endblock %}
+
+
+{% block content %}
+
+
+{% comment %}
+    <div id="inviteform">
+    <span class="formtitle">Get invite</span>
+        <p>
+            Странно видеть здесь русский текст, не правда ли? Однако я не готов еще писать эту хрень на английском.<br>
+            По идее здесь идет водолейство заканчивающиеся вопросом "Вы точно этого хотите?" =)
+        </p>
+        <a class=' button awesome right' href="{% url main.views.request_invite %}">Request invite</a>
+    </div>
+
+{% endcomment %}
+
+
+
+
+
+    <form method="post" action="{% url django.contrib.auth.views.login %}">
+        {% csrf_token %}
+        <div id="loginform">
+            <span class="formtitle">{%  trans "Sign in" %}</span>
+            <p>
+                {{ form.username }}
+                <span class='label'>:{%  trans "Login" %}</span>
+            </p>
+
+            <p>
+                {{ form.password }}
+                <span class='label'>:{%  trans "Password" %}</span>
+            </p>
+             <input type="submit" style="position: absolute; left: -9999px"/>
+            <a class=' button awesome right loginbutton'>{%  trans "Login" %}</a>
+        </div>
+
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+
+{% endblock %}

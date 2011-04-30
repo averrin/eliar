@@ -1,0 +1,154 @@
+{% extends 'main.html' %}
+{% load inplace_edit %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="mid">
+        <h1>:{%  blocktrans %}{{ profile_user }} profile page{% endblocktrans %}</h1>
+<div style="height: 570px;">
+        <div class="right ">
+        <div class="avatar"><img src="{{ STATIC }}images/avatar.png"></div>
+
+        <div>
+            <ul class="personal_links">
+                <li><a href="/portfolio">:{% trans "my Portfolio" %}</a></li>
+                <li><a href="http://nabrodov.pen.io">:{% trans "my CV" %}</a></li>
+                <li><a href="http://averr.in">:{% trans "my Blog" %}</a></li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="left ">
+        <table class="profile_page">
+            <thead>
+            <th>:{% trans "about Me" %}</th>
+            <th/>
+            </thead>
+            <tr>
+                <td><span class="highlight green">name</span>:</td>
+                <td>Набродов Алексей Алексеевич</td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">birthday</span>:</td>
+                <td>22.03.89</td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">place</span>:</td>
+                <td>Russia, Saint-Petersburg</td>
+            </tr>
+
+            <thead>
+            <th>:{% trans "my CV" %}</th>
+            <th></th>
+            </thead>
+            <tr>
+                <td><span class="highlight green">superJob</span>:</td>
+                <td><a href="http://www.superjob.ru/resume/cv-5953861.html">Набродов
+                    Алексей</a></td>
+            </tr>
+                        <tr>
+                <td><span class="highlight green">printVersion</span>:</td>
+                <td><a href="http://nabrodov.pen.io">Набродов
+                    Алексей</a></td>
+            </tr>
+
+        </table>
+        <br>
+        <table class="profile_page">
+            <thead>
+            <th>:{% trans "my Contacts" %}</th>
+            <th></th>
+            </thead>
+            <tr>
+            <tr>
+                <td><span class="highlight green">twitter</span>:</td>
+                <td><a href="http://twitter.com/averrin">@Averrin</a></td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">vk</span>:</td>
+                <td><a href="http://vkontakte.ru/id27710">Набродов Алексей</a></td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">habr</span>:</td>
+                <td><a href="http://averrin.habrahabr.ru/">Averrin</a></td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">dA</span>:</td>
+                <td><a href="http://averrin.deviantart.com/">=Averrin</a></td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">fb</span>:</td>
+                <td><a href="http://fb.com/averrin">Alex Nabrodov</a></td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">mail/gtalk</span>:</td>
+                <td>averrin@gmail.com</td>
+            </tr>
+                        <tr>
+                <td><span class="highlight green">skype</span>:</td>
+                <td>averrin_nab</td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">github</span>:</td>
+                <td><a href="http://github.com/averrin">averrin</a></td>
+            </tr>
+            <tr>
+                <td><span class="highlight green">myonepage</span>:</td>
+                <td><a href="http://myonepage.com/averrin">averrin</a></td>
+            </tr>
+                        <tr>
+                <td><span class="highlight green">tumblr</span>:</td>
+                <td><a href="http://t.averr.in">averr.in blog</a></td>
+            </tr>
+        </table>
+        </div>
+
+    </div>
+        <h1>:{% trans "my Badges" %}</h1>
+
+        <div style="width:49%; display: inline-block;">
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/python.png"></div>
+                <span class=badge_text>Python developer</span>
+            </div>
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/django.png"></div>
+                <span class=badge_text>Django developer</span></div>
+
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/ubuntu.png"></div>
+                <span class=badge_text>Linux user</span></div>
+
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/htc.png"></div>
+                <span class=badge_text>HTC lover</span></div>
+        </div>
+        <div style="width:49%; display: inline-block;">
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/android.png"></div>
+                <span class=badge_text>Android fun</span></div>
+
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/mtg_2.png"></div>
+                <span class=badge_text>Magic the Gathering</span></div>
+
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/dd.png"></div>
+                <span class=badge_text>Dungeons & Dragons</span></div>
+
+            <div class=badge>
+                <div class=badge_icon><img src="{{ STATIC }}images/icons/tes.png"></div>
+                <span class=badge_text>The Elder Scrolls</span></div>
+        </div>
+
+        <div class="wall">
+            <h1>:{% trans "my Wall" %}</h1>
+            {% inplace_edit "profile.wall_text|linebreaks|safe" auto_height=1 , auto_width=1 , class_inplace="wallta" %}
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block scripts %}  {% inplace_media %} {% endblock %}
+

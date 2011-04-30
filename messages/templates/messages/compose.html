@@ -1,0 +1,47 @@
+{% extends "messages/base.html" %} 
+{% load i18n %} 
+{%block title%}
+New Message
+{%endblock%}
+{%block crumb%}
+&raquo;&nbsp; New message
+{%endblock%}
+{% block mail_content %} 
+<div>
+<form action="" method="post">
+{% csrf_token %}
+
+<fieldset class="module">
+        <div class="row{% if form.errors %} errors{% endif %}">
+                <div class='formline'>
+                        <div class="column span-4">{{ form.recipient.label_tag }}</div>
+                        <div class="column span-flexible">
+                            {{ form.recipient.errors }}
+                                {{ form.recipient }}
+                        </div>
+                </div>
+                <div class='formline'>
+                        <div class="column span-4">{{ form.subject.label_tag }}</div>
+                        <div class="column span-flexible">
+                            {{ form.subject.errors }}
+                                {{ form.subject }}
+                        </div>
+                </div>
+                <div class='formline'>
+                        <div class="column span-4">{{ form.body.label_tag }}</div>
+                        <div class="column span-flexible">
+                                {{ form.body }}
+                            {{ form.body.errors }}
+                        </div>
+                </div>
+        </div>
+</fieldset>
+<div class="module submit-row">
+                <ul class="submit-row">
+                    <li class="submit-button-container"><input type="submit" value="{% trans "Send" %}" class="default"></li>
+                </ul>
+            </div>
+</form>
+</div>
+
+{% endblock %}

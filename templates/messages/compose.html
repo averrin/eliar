@@ -1,0 +1,39 @@
+{% extends "messages/base.html" %} 
+{% load i18n %} 
+{%block title%}
+New Message
+{%endblock%}
+{%block crumb%}
+&raquo;&nbsp; New message
+{%endblock%}
+{% block mail_content %} 
+<div>
+<form action="" method="post">
+{% csrf_token %}
+
+
+            <div id="composeform">
+            <span class="formtitle">Compose message</span>
+            <p>
+                {{ form.recipient }}
+                <span class='label'>:Recipient</span>
+            </p>
+
+            <p>
+                {{ form.subject }}
+                <span class='label'>:Subject</span>
+            </p>
+                            <p>
+                {{ form.body }}
+                <span class='label'>:Body</span>
+            </p>
+             <input type="submit" style="position: absolute; left: -9999px"/>
+                <div class="btwrap">
+            <a class=' button awesome right sendform'>Send</a>
+                    </div>
+        </div>
+
+</form>
+</div>
+
+{% endblock %}

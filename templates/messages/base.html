@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% load i18n %}  
+{%block crumb%}
+	{%endblock%}
+{% block bodyclass %}about{% endblock %}
+{% block content %}
+<div class="mid">
+{% block sidebar %}
+    <div class="nav">
+    <a href="{% url messages_inbox %} " class="button awesome">{% trans "Inbox" %}</a>
+    <a href="{% url messages_outbox %} " class="button awesome">{% trans "Sent Messages" %}</a>
+    <a href="{% url messages_compose %} " class="button awesome">{% trans "New Message" %}</a>
+    <a href="{% url messages_trash %} " class="button awesome">{% trans "Trash" %}</a>
+    </div>
+    <br><br>
+{% endblock %}
+    {% block mail_content %}
+{% endblock %}
+</div>
+{% endblock %}

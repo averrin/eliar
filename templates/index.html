@@ -1,0 +1,20 @@
+{%  extends 'main.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    {% if user.is_superuser %}
+    {% include 'dev/todo.html' %}
+    {% endif %}
+
+    <h1 title="test">Test</h1>
+       <p>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="Averrin">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><br>
+    </p>
+
+
+    <h1>Lorem</h1>
+    {% include 'lorem.html' %}
+{% endblock %}
+
+
