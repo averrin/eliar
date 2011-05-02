@@ -2,3 +2,5 @@
 reports/
 local_settings*
 *~
+*.out
+*.db

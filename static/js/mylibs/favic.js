@@ -34,7 +34,7 @@
 			},
 			Icon: {
 				GetFavicon: true,
-				Default: '/img/nav/default.gif',
+				Default: '/static/images/default.png',
 				Prepend: true,
 				Append: false,
 				Class: ''

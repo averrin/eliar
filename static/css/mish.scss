@@ -34,7 +34,8 @@
 
 /*Main style*/
 body {
-    /*background: $bg_color;*/
+    /*background-image: url(/eliar/static/images/mish_r.jpg);*/
+    background-repeat: no-repeat;
     /*color: $fg_color;*/
     text-shadow: 0 1px 1px #888;
     font-family: Comfortaa;
@@ -44,7 +45,7 @@ body {
 body #content {
     padding: 4px;
     margin: 0 auto;
-    width: 90%;
+    /*width: 90%;*/
     margin-bottom: 50px;
 }
 
@@ -82,7 +83,44 @@ li{
     padding: 4px;
     width: 500px;
 }
+.form input{
+    width: 150px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 .send{
     margin-right: -3px;
     margin-top: -2px;
 }
+#datepicker{
+    margin-top: 24px;
+}
+.col{
+    height: 100%;
+    margin-top: 30px;
+}
+.cont{
+    margin: 0 auto;
+    width: 900px;
+}
+.calendar{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.wallta{
+    /*border: 1px solid black;*/
+}
+.inplaceedit{
+    width: 370px;
+        -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #777;
+    padding: 4px;
+}
+form.inplaceeditform {
+    display: block !important;
+    width: 380px;
+    }

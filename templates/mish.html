@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load assets %}
+{% load inplace_edit %}
 
 
 {% block title %}
@@ -16,12 +17,13 @@
 {% endblock %}
 
 {% block scripts %}
+    {% inplace_media %}
     <script type="text/javascript" src="{{ STATIC }}js/mylibs/favic.js"></script>
     <script type="text/javascript" src="{{ STATIC }}js/libs/jquery-ui-1.8.12.custom.min.js"></script>
     <script type="text/javascript">
     $(function(){
-        $('a').urlfavicon()
-        $('a img').addClass('favic')
+        $('a').urlfavicon({Default: '{{ STATIC }}images/close_icon.gif'});
+        $('a img').addClass('favic');
         			$('li').hover(function() {
 		$(this).addClass('ui-state-hover');
 		}, function() {
@@ -33,10 +35,11 @@
             if(clicked.is('li')){
             window.open($('a',this).attr('href'), '_blank');
             }
-        })
+        });
         $('.del').click(function(){
             location = "{% url mish.views.del_link %}"+$(this).attr('id')
-        })
+        });
+//		$( "#datepicker" ).datepicker();
     })
     </script>
 {% endblock %}
@@ -54,8 +57,12 @@
         </div>
     {% endif %}
 
-    <div class='wide'>
-    <h1>Я домашняя страничка Мауси! <img src='http://fc09.deviantart.net/fs11/i/2006/179/4/3/mouse_by_zoik.gif' style='margin-bottom: -8px;'></h1>
+    <div class='cont'>
+    <div  class="right col">
+    <img src="{{ STATIC }}images/mish_r.jpg" style="width: 380px;">
+        {% inplace_edit "wall.wall_text|linebreaks|safe"  auto_height=1, auto_width=1, class_inplace="wallta" %}
+</div>
+        <h1>Я домашняя страничка Мауси! <img src='http://fc09.deviantart.net/fs11/i/2006/179/4/3/mouse_by_zoik.gif' style='margin-bottom: -8px;'></h1>
         <form method="post" action=".">
             {% csrf_token %}
         <p class="ui-state-default ui-corner-all form">
@@ -67,84 +74,14 @@
         </p>
             <input type="submit" style="position: absolute; left: -9999px"/>
         </form>
-    </p>
-        <div class="links">
+        <div class="links left">
     <ul>
         {% for link in links %}
             <li class="ui-state-default ui-corner-all"><a href="{{ link }}" target="_blank">{{ link.title }}</a> <button class="right negative del" id="{{ link.id }}">del</button> </li>
         {% endfor %}
-    </ul></div>
-
-</div>
-    {% comment %}
-
-<script type="text/javascript" src="/old/media/ui/js/jquery-ui-1.7.2.custom.min.js"></script>
-		<link type="text/css" href="/old/media/ui/css/custom-theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" >
-<script type="text/javascript">
-	$(function(){
-			$('.li').hover(function() {
-		$(this).addClass('ui-state-hover');
-		}, function() {
-		$(this).removeClass('ui-state-hover');
-		}
-		);
-			$('a').urlfavicon({Classes:['ext']},{Default: '/old/media/png/Bookmarks.png'});
-			$("#accordion").accordion({ header: "h3", collapsible: true, autoHeight: false });
-	});
-</script>
-<style>
-	.ul a {
-		text-decoration: none !important;
-		color: #222 !important;
-		font-weight: bold !important;
-	}
-	.li{
-	padding-left: 8px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	}
-	#main{
-	/*border: solid 1px #eee;*/
-	}
-	.li img{
-		margin-bottom: -4px;
-		margin-right: 6px;
-		height: 16px;
-	}
-	h3 {
-		font-weight: bold !important;
-	}
-</style>
-
-			<div id="main" class='container ui-corner-all'>
-				<div id='cal'>
-		<h2 class='alt' style='margin-bottom: 6px !important; color: red;'>{{day.title}} [{{day.todo}}]</h2>
-		<h3 class='alt prepend-6'>{{fortune}}</h3>
-	</div>
-			<h1 class='alt'>Я домашняя страничка Мауси! <a href='/old/admin/hero/link/add/'><img src='http://fc09.deviantart.net/fs11/i/2006/179/4/3/mouse_by_zoik.gif' style='margin-bottom: -8px;'></a></h1>
-			<div id='content' class='span-16' style='margin-top: 20px;'>
-		<img src='/old/media/mish.jpg' class='span-8' style='margin-left: -100px; margin-top: -40px;'>
-		<div class='span-9 ul last'>
-			{%for line in links%}
-		<div class="li ui-state-default ui-corner-all" style='list-style-type: none;'><a href={{line.link}} target="_blank">{{line.title}}</a></div>
-			{%endfor%}
-		</div>
-		<br>
-			<div id="accordion" class='span-9' style='margin-top: 20px; margin-left: 220px;'>
-				{% autoescape off %}
-			{%for line in notes%}
-			<div>
-				<h3><a href="#">{{line.title}}</a></h3>
-				<div>{{line.content}}</div>
-			</div>
-			{%endfor%}
-				{% endautoescape %}
-
-		</div>
-	</div>
-<img clsss='span-8' style='margin-right: -200px; margin-left: - 100px;' src='/old/media/mish_r.jpg' width=400>
-</div>
-    {% endcomment %}
-
-
+    </ul>
+    <div class="calendar">
+<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=350&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=dsuponenko%40gmail.com&amp;color=%23182C57&amp;ctz=Europe%2FMoscow" style=" border-width:0 " width="500" height="350" frameborder="0" scrolling="no"></iframe>
+    </div>
+    </div></div>
 {% endblock %}

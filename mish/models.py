@@ -9,3 +9,7 @@ class Link(models.Model):
     def __unicode__(self):
         return self.url
 
+
+class Wall(models.Model):
+    wall_text = models.TextField()
+

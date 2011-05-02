@@ -71,7 +71,7 @@ def _get_adaptor(request, method='GET'):
     module_name = request_params.get('module_name', None)
 
     if not field_name or not obj_id or not app_label and module_name:
-        return None
+        return field_name, obj_id, app_label, module_name
 
     contenttype = ContentType.objects.get(app_label=app_label,
                                           model=module_name)
@@ -80,6 +80,7 @@ def _get_adaptor(request, method='GET'):
     obj = get_object_or_404(model_class,
                             pk=obj_id)
     adaptor = request_params.get('adaptor', None)
+#    adaptor = 'textarea'
     class_adaptor = get_adaptor_class(adaptor, obj, field_name)
 
     filters_to_show = request_params.get('filters_to_show', None)
