@@ -43,4 +43,5 @@ urlpatterns = patterns('',
     (r'^portfolio/$', include('portfolio.urls')),
     (r'^blog/$', include('blog.urls')),
     (r'^mish/', include('mish.urls')),
+	(r'^areal/', include('areal.urls')),
 )

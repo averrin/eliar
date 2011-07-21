@@ -118,7 +118,8 @@ PROJECT_APPS = (
 'accounts',
 'portfolio',
 'blog',
-'mish'
+'mish',
+'areal'
 )
 
 INSTALLED_APPS = (

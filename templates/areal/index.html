@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load assets %}
+{% load inplace_edit %}
+
+
+{% block title %}
+    Averr.in's Areal
+{% endblock %}
+
+{% block css %}
+{% assets "css_mish" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
+    <link rel="stylesheet" href="{{ STATIC }}css/smoothness/jquery-ui-1.8.12.custom.css">
+<style type="text/css">
+li{width:100% !important;}
+.expanded{height: 300px; overflow: auto}
+.closed{
+    height: 16px;overflow: hidden;
+}
+.show{
+    padding: 4px 5px!important;
+margin-top: -3px;
+margin-right: -1px;
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+{#    {% inplace_media %}#}
+{#    <script type="text/javascript" src="{{ STATIC }}js/mylibs/favic.js"></script>#}
+    <script type="text/javascript" src="{{ STATIC }}js/libs/jquery-ui-1.8.12.custom.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+{#        $('a').urlfavicon({Default: '{{ STATIC }}images/close_icon.gif'});#}
+//        $('a img').addClass('favic');
+        			$('li').hover(function() {
+		$(this).addClass('ui-state-hover');
+		}, function() {
+		$(this).removeClass('ui-state-hover');
+		}
+		);
+        $('li').click(function(e){
+            var clicked = jQuery(e.target);
+            if(clicked.is('li')){
+            window.open($('a',this).attr('href'), '_blank');
+            }
+        });
+        $('.show').click(function(){
+        ct=$('.content[for="'+$(this).parent().attr('id')+'"]')
+
+            ct.toggleClass('closed')
+            ct.toggleClass('expanded')
+        });
+//		$( "#datepicker" ).datepicker();
+    })
+    </script>
+{% endblock %}
+
+{% block body %}
+
+            {% if form.errors %}
+        <div class='loginerror'>
+            {% for field,err in form.errors.items %}
+                {% if not forloop.counter0 %}
+                        {{ err|striptags }}
+                {% endif %}
+            {% endfor %}
+        <span class="hide">[ <a href="javascript://">:{%  trans "hide" %}</a> ]</span>
+        </div>
+    {% endif %}
+
+    <div class='cont'>
+    <div  class="right col">
+{#        {% inplace_edit "wall.wall_text|linebreaks|safe"  auto_height=1, auto_width=1, class_inplace="wallta" %}#}
+</div>
+        <h1>Диспетчерская система Areal</h1>
+{#        <form method="post" action=".">#}
+{#            {% csrf_token %}#}
+{#        <p class="ui-state-default ui-corner-all form">#}
+{#            Текст:#}
+{#            <input>#}
+{#            Ссылка:#}
+{#            <input>#}
+{#        <button class="button sendform right send">Отправить</button>#}
+{#        </p>#}
+{#            <input type="submit" style="position: absolute; left: -9999px"/>#}
+{#        </form>#}
+        <div class="links left">
+    <ul>
+        {% for msg in msgs %}
+            <li class="ui-state-active ui-corner-all" id={{ msg.id }}>{{ msg.subj_e }} -- {{ msg.from_e }}<button class="right positive show" id="">Текст</button></li>
+            {% autoescape off %}
+            <li class="ui-state-default ui-corner-all closed content" for={{ msg.id }}>{{ msg.text_e }}</li>
+            {% endautoescape %}
+
+        {% endfor %}
+    </ul>
+
+            <p>
+                {% autoescape off %}
+{{ response }}
+                {% endautoescape %}
+            </p>
+
+    </div></div>
+{% endblock %}
