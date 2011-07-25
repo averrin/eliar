@@ -20,7 +20,12 @@
     {% inplace_media %}
     <script type="text/javascript" src="{{ STATIC }}js/mylibs/favic.js"></script>
     <script type="text/javascript" src="{{ STATIC }}js/libs/jquery-ui-1.8.12.custom.min.js"></script>
+     <script type="text/javascript" src="{{ STATIC }}js/libs/search.js"></script>
     <script type="text/javascript">
+
+
+
+
     $(function(){
         $('a').urlfavicon({Default: '{{ STATIC }}images/close_icon.gif'});
         $('a img').addClass('favic');
@@ -41,6 +46,22 @@
         });
 //		$( "#datepicker" ).datepicker();
     })
+
+    $('input[name="q"]').search('.link', function(on) {
+  on.reset(function() {
+    $('.link').show();
+  });
+
+  on.empty(function() {
+    $('#empty-message').show();
+  });
+
+  on.results(function(results) {
+    $('.link').hide();
+    results.show();
+  });
+});
+
     </script>
 {% endblock %}
 
@@ -74,10 +95,13 @@
         </p>
             <input type="submit" style="position: absolute; left: -9999px"/>
         </form>
+    <p class="ui-state-default ui-corner-all form">
+        <input name=q style="width: 100%">
+    </p>
         <div class="links left">
     <ul>
         {% for link in links %}
-            <li class="ui-state-default ui-corner-all"><a href="{{ link }}" target="_blank">{{ link.title }}</a> <button class="right negative del" id="{{ link.id }}">del</button> </li>
+            <li class="ui-state-default ui-corner-all link"><a href="{{ link }}" target="_blank">{{ link.title }}</a> <button class="right negative del" id="{{ link.id }}">del</button> </li>
         {% endfor %}
     </ul>
     <div class="calendar">
